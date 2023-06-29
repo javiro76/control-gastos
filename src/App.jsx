@@ -10,9 +10,9 @@ function App() {
   return (
     
     <div>
-        <Header></Header>
-        <h1>hola hcao
-        </h1>
+        <Header/>
+        
+        
     </div>
      
   )
