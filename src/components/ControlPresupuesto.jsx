@@ -11,10 +11,10 @@ const ControlPresupuesto = ({gastos,presupuesto }) => {
    
    const totalGastado = gastos.reduce(( total,gasto ) => gasto.cantidad + total,0);
    
-   console.log(totalGastado);
+   const totalDisponible = presupuesto - totalGastado 
 
-   setGastado(totalGastado);
-    
+   setDisponible(totalDisponible);
+   setGastado(totalGastado);    
   }, [gastos])
   
 
