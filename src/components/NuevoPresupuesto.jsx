@@ -1,48 +1,45 @@
-import {useState} from 'react'
-import Mensaje from './Mensaje';
+import { useState } from "react";
+import Mensaje from "./Mensaje";
 
-const NuevoPresupuesto = ({presupuesto,setPresupuesto, setIsValidPresupuesto}) => {
-  
-  const [mensaje, setMensaje ] = useState('');
+const NuevoPresupuesto = ({
+  presupuesto,
+  setPresupuesto,
+  setIsValidPresupuesto,
+}) => {
+  const [mensaje, setMensaje] = useState("");
 
-  const handlePresupuesto = (e)=>{
+  const handlePresupuesto = (e) => {
     e.preventDefault();
-    
-    if(!(presupuesto) || (presupuesto) < 0 ){
-      setMensaje('no es un presupuesto valido')
-      return
+
+    if (!presupuesto || presupuesto < 0) {
+      setMensaje("no es un presupuesto valido");
+      return;
     }
-    setMensaje('');
+    setMensaje("");
     setIsValidPresupuesto(true);
+  };
 
-
-  }
-  
   return (
-    <div className='contenedor-presupuesto contedor sombra'>
-        <form onSubmit={handlePresupuesto} className='formulario'>
-          <div className='campo'>
-              <label>Definir Presupuesto</label>
+    <div className="contenedor-presupuesto contedor sombra">
+      <form onSubmit={handlePresupuesto} className="formulario">
+        <div className="campo">
+          <label>Definir Presupuesto</label>
 
-              <input
-                  className='nuevo-presupuesto'
-                  type='number'
-                  placeholder='Añade tu presupuesto'
-                  value={presupuesto}
-                  onChange={(e)=>setPresupuesto(Number(e.target.value))}
+          <input
+            className="nuevo-presupuesto"
+            type="number"
+            placeholder="Añade tu presupuesto"
+            value={presupuesto}
+            onChange={(e) => setPresupuesto(Number(e.target.value))}
+          />
+        </div>
 
+        <input type="submit" value="Añadir" />
 
-              />
-
-          </div>
-
-          <input type='submit' value='Añadir'/>
-
-          {mensaje && <Mensaje tipo="error">{mensaje}</Mensaje>}
-          
-        </form>
+        {mensaje && <Mensaje tipo="error">{mensaje}</Mensaje>}
+      </form>
     </div>
-  )
-}
+  );
+};
 
-export default NuevoPresupuesto
+export default NuevoPresupuesto;
